@@ -180,11 +180,16 @@ class LLMClient:
         return models
 
     def generate(self, prompt: str) -> str:
+        logger.info(f"Пришел запрос на генерацию: {prompt}")
         """Генерация текста с выбранной моделью"""
         if self.current_model == "gemini":
-            return self._generate_with_gemini(prompt)
+            res = self._generate_with_gemini(prompt)
+            logger.info(f"Ответ генерации Gemini: {res}")
+            return res
         else:
-            return self._generate_with_ollama(prompt)
+            res = self._generate_with_ollama(prompt)
+            logger.info(f"Ответ генерации Ollama: {prompt}")
+            return res
 
     def _generate_with_gemini(self, prompt: str) -> str:
         """Использует Gemini API"""
