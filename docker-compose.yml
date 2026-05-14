@@ -61,8 +61,9 @@ services:
       - "8000:8000"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - OLLAMA_HOST=http://ollama:11434
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - GEMINI_MODEL=${GEMINI_MODEL}
+      - OLLAMA_HOST=http://ollama:11434
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_NAME=test_generator

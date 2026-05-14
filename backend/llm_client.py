@@ -22,6 +22,7 @@ class LLMClient:
         self.ollama_model_name = "llama3.2:3b"  # Модель по умолчанию
 
         self.ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+        self.gemini_model_name = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
         # Кэширование проверок (чтобы не проверять слишком часто)
         self._last_gemini_check = None
@@ -107,8 +108,8 @@ class LLMClient:
 
             self.gemini_model = None
             for model in models:
-                if 'gemini-3.1-flash-lite' in model.name and 'generateContent' in model.supported_generation_methods:
-                    self.gemini_model = genai.GenerativeModel('gemini-3.1-flash-lite')
+                if self.gemini_model_name in model.name and 'generateContent' in model.supported_generation_methods:
+                    self.gemini_model = genai.GenerativeModel(self.gemini_model_name)
                     self.gemini_available = True
                     logger.info(f"✅ Gemini API доступна, модель: {model.name}")
                     return
