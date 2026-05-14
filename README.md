@@ -118,7 +118,7 @@ cd test-generator-service
 # 2. Создайте файл с переменными окружения
 cp .env.example .env
 
-# 3. Отредактируйте .env (добавьте GEMINI_API_KEY, если хотите использовать Gemini, отредактируйте LOG_LEVEL)
+# 3. Отредактируйте .env (добавьте GEMINI_API_KEY, если хотите использовать Gemini, отредактируйте LOG_LEVEL, GEMINI_MODEL)
 # Получить бесплатный ключ: https://aistudio.google.com/app/apikey
 
 # 4. Запустите всё одной командой!
