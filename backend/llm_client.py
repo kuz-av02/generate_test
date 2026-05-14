@@ -188,7 +188,7 @@ class LLMClient:
             return res
         else:
             res = self._generate_with_ollama(prompt)
-            logger.info(f"Ответ генерации Ollama: {prompt}")
+            logger.info(f"Ответ генерации Ollama: {res}")
             return res
 
     def _generate_with_gemini(self, prompt: str) -> str:
